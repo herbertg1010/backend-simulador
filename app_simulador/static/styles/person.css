@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+::-webkit-scrollbar {
+    width: 12px; 
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+h2{
+    font-weight: 800;
+    color:#00ff88;
+    margin: 13px;
+}
+h1{
+    text-align: center;
+    font-weight: 800;
+    color: #00ff88;
+}
+
+p{
+    font-weight: 800;
+    color: #f0ffffde;
+}
+
+label{
+    font-weight: 800;
+    color: #00ff88;
+}
+
+body{
+    height: 100vh;
+    background-color: #201b2c;
+    font-family: 'Noto Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul{
+    list-style: none;
+}
+
+li > input{
+    color: #00ff88;
+}
+
+
+.btn-group > .btn-calc{
+    padding: 15px 10px;
+    box-shadow: 0px 10px 40px -12px #00ff8052;
+    outline: none;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #2b134b;
+    background-color: #00ff88;
+    cursor: pointer;
+    border-radius: 17px;
+    border: none;
+    transition: all 0.3s ease;
+    margin: 23px;
+}
+
+.btn-group > .btn-calc:hover{
+    background-color: #ff0000; 
+    transform: scale(1.05); 
+    box-shadow: 0px 10px 40px -8px #0077ff52; 
+    color: #fff; 
+}
+.btn-group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img{
+    width: 430px;
+    height: 300px;
+}
+
+
+@media screen and (max-width: 552px){
+    img{
+        width: 88%;
+        height: 96%;
+    }
+
+    h1{
+        font-size: 20px;
+    }
+    h2{
+        font-size: 17px;
+    }
+}
+

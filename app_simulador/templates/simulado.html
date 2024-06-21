@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulado</title>
+    <link rel="stylesheet" href="{% static 'styles/simulado.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/icon-simulado.png' %}" type="image/x-icon">
+</head>
+<body>
+    <form method="post" action="{% url 'resultados' %}">
+        {% csrf_token %}
+        <h1>Simulado</h1>
+        <ul class="list">
+            {% for questao in questoes_para_simulado %}
+            <li>
+                <p> Questão {{ forloop.counter }}: {{ questao.pergunta }}</p>
+                {% if questao.imagem %}
+                    <img src="{{ questao.imagem.url }}" alt="{{ questao.pergunta }}" class="imagem-questao">
+                {% endif %}
+                <ul class="list2">
+                    <li>
+                        <label>
+                            <input type="radio" name="questao_{{ questao.id }}" value="A">
+                            {{ questao.alternativa_a }}
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="questao_{{ questao.id }}" value="B">
+                            {{ questao.alternativa_b }}
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="questao_{{ questao.id }}" value="C">
+                            {{ questao.alternativa_c }}
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="questao_{{ questao.id }}" value="D">
+                            {{ questao.alternativa_d }}
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="questao_{{ questao.id }}" value="E">
+                            {{ questao.alternativa_e }}
+                        </label>
+                    </li>
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="btn-group">
+            <button type="submit" class="btn">Calcular Resultado</button>
+        </div>
+    </form>
+</body>
+</html>

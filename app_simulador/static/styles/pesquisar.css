@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+::-webkit-scrollbar {
+  width: 12px; 
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+body{
+  background-color: #201b2c;
+}
+
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.form {
+  gap: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 50px;
+}
+
+input, select, button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+select{
+  font-size: 17px;
+}
+option{
+  font-size: 17px;
+ font-weight: bold;
+}
+
+input {
+  outline: none;
+  font-weight: bold;
+  font-size: 17px;
+  width: 50%;
+  text-align: center;
+  background-color: #fff;
+  color: #2b134b;
+}
+
+select, button {
+  font-weight: bold;
+  text-align: center;
+  outline: none;
+  background-color: #00ff88;
+  color: #2b134b;
+  cursor: pointer;
+}
+
+button:hover {
+  color: #fff; 
+  box-shadow: 0px 10px 40px -8px #0077ff52; 
+  transform: scale(1.05); 
+  background-color: #ff0000;
+}
+
+
+h2 {
+  font-weight: bold;
+  color: #00ff88;
+  text-align: center;
+  margin-top: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 20px;
+  padding: 20px;
+  background-color: #212023;
+  border-radius: 5px;
+  box-shadow: 0px 10px 40px -12px #00ff8052;
+}
+
+p {
+  font-weight: bold;
+  color: #ffffffde;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+button{
+   font-size: 17px;
+    width: 16%;
+    transition: all 0.3s ease;
+    border-radius: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 12px;
+    box-shadow: 0px 10px 40px -12px #00ff8052;
+}
+
+img{
+  width: 400px;
+  height: 300px;
+
+}
+
+@media screen and (max-width: 824px){
+  .form > button{
+    width: 60%;
+  }
+  .form > input{
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 518px) {
+  img{
+    width: 85%;
+    height: 95%;
+  }
+}

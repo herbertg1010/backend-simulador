@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'styles/home.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/icon-green.png' %}" type="image/x-icon">
+</head>
+<body>
+    <div class="principal">
+        <header>
+            <div class="nav-bar">
+                <div class="nav">
+                <h1>Simulador</h1>
+                <img src="{% static 'images/school.png' %}" alt="logo" class="escola">
+                <img src="{% static 'images/ifpi.png' %}" alt="IFPI" class="ifpi">
+                </div>
+            <nav>
+                <div class="link-group">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'pesquisar' %}" target="_blank">Pesquisar Questão</a>
+                <a href="{% url 'inserir' %}" target="_blank">Inserir Questão</a>
+                </div>
+            </nav>
+            </div>
+        </header>
+    <main>
+    <div class="main">
+        <h2>Seja bem-vindo (a) ao simulador de questões!</h2>
+    <div class="card-btn">
+        <h3>Escolha qual a opção de simulado que você prefere!</h3>
+        
+        <div class="btn">
+            <form action="{% url 'simulado' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Gerar Simulado</button>
+            </form>
+            <form action="{% url 'ranqueado' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btnranqueado">Gerar Simulado Ranqueado</button>
+            </form>
+        </div>
+            <form action="{% url 'personalizado' %}" method="post">
+                {% csrf_token %}
+                <div class="form">
+                    <button type="submit">Gerar Simulado Personalizado</button>
+                    <select name="topico" id="topico">
+                        <option value="">Selecione a matéria</option>
+                        <option value="Português">Português</option>
+                        <option value="Matemática">Matemática</option>
+                    </select>
+                </div>
+            </form>
+    </div>
+    </div>
+    </main>
+    <footer>
+    <div class="footer-main">
+        <div class="group">
+        <div class="links">
+        <div class="redes-sociais">
+            <h3>Minhas Redes Sociais</h3>
+            <a href="https://twitter.com/herbertg__" target="_blank">Twitter</a>
+            <a href="https://www.facebook.com/herbertgabriel.alencar" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/herbertg_/" target="_blank">Instagram</a>
+            <a href="https://www.youtube.com/channel/UCwIy_tREKIJ9zYofTXIkq9w" target="_blank">Youtube</a>
+            <a href="https://github.com/herbertg1010" target="_blank">GitHub</a>
+        </div>
+        </div>
+        <div class="footer-pai">
+            <div class="sobre">
+                <h3>Sobre o Simulador de Questões</h3>
+                <p>Um simulador de questões desenvolvido por mim (Herbert Gabriel) aluno do curso de TADS do IFPI com o objetivo de ajudar os alunos que irão fazer o exame classificatório por meio da resolução de simulados de anos anteriores.</p>
+            </div>
+            <div class="footer-copyright">
+                <p id="verde"> &copy; 2023 Simulador de Questões IFPI. Todos os direitos reservados.</p>
+                <a href="https://www.ifpi.edu.br/floriano" target="_blank">IFPI - Campus Floriano</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    </footer>
+    </div>      
+</body>
+</html>

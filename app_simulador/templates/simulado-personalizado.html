@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulado Personalizado</title>
+    <link rel="stylesheet" href="{% static 'styles/person.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/icon-simulado.png' %}" type="image/x-icon">
+</head>
+<body>
+    <h1>Simulado Personalizado</h1>
+    <h2>Questões de {{ questoes.0.topico.nome_topico }}</h2>
+    <form action="{% url 'resultado_personalizado' %}" method="post">
+        {% csrf_token %}
+    <ul class="list2">
+        {% for questao in questoes %}
+            <li>
+                <p>{{ questao.pergunta }}</p>
+                {% if questao.imagem %}
+                    <img src="{{ questao.imagem.url }}" alt="{{ questao.pergunta }}">
+                {% endif %}
+                <label>
+                    <br>
+                    <input type="radio" name="alternativa_{{ questao.id }}" value="A"> {{ questao.alternativa_a }}<br>
+                    <input type="radio" name="alternativa_{{ questao.id }}" value="B"> {{ questao.alternativa_b }}<br>
+                    <input type="radio" name="alternativa_{{ questao.id }}" value="C"> {{ questao.alternativa_c }}<br>
+                    <input type="radio" name="alternativa_{{ questao.id }}" value="D"> {{ questao.alternativa_d }}<br>
+                    <input type="radio" name="alternativa_{{ questao.id }}" value="E"> {{ questao.alternativa_e }}<br>
+                </label>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="btn-group">
+        <button type="submit" class="btn-calc">Calcular Pontuação</button>
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserção de Questões</title>
+    <link rel="stylesheet" href="{% static 'styles/inserir.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/icon-question.png' %}" type="image/x-icon">
+</head>
+<body>
+    <h1>Cadastro de Questões</h1>
+    <form action="{% url 'inserir' %}" method="post" class="form" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2>Insira sua questão preenchendo o formulário abaixo!</h2>
+        {% for field in form %}
+            <div class="form-field">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+            </div>
+        {% endfor %}
+            <button type="submit">Cadastrar Questão</button>
+    </form>
+</body>
+</html>
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados</title>
+    <link rel="stylesheet" href="{% static 'styles/resultados_ranqueado.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/rank.png' %}" type="image/x-icon">
+    
+</head>
+<body>
+    <h1>Resultados Ranqueados</h1>
+
+    <p>Pontuação: {{ pontuacao }} de {{ numero_de_questoes }}</p>
+    <p>Média: {{ media }}</p>
+    <h2>Respostas:</h2>
+        <ul class="container">
+            {% for resposta in respostas_corretas_list %}
+            <li>
+            <p>{{ resposta.questao.pergunta }}</p>
+            {% if resposta.questao.imagem %}
+                    <img src="{{ resposta.questao.imagem.url }}" alt="{{ resposta.questao.pergunta }}" class="imagem-questao">
+            {% endif %}
+            <ul class="containerr">
+                <li><p> Sua resposta: {{ resposta.resposta_usuario }}</p></li>
+                <li><p> Resposta correta: {{ resposta.resposta_correta }}</p></li>
+            </ul>
+            </li>
+            {% endfor %}
+
+        </ul>
+        <div class="rodape">
+            <a href="{% url 'home' %}">Voltar para o Menu Principal</a>
+        </div>
+</body>
+</html>

@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+::-webkit-scrollbar {
+    width: 12px; 
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+  body{
+    background-color: #201b2c;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+p.red{
+    color: rgba(255, 156, 156, 0.822);
+}
+
+p.green{
+    color: rgb(129, 255, 129);
+}
+
+p.white{
+    color: #f0ffffde;
+}
+
+h1{
+    text-align: center;
+    color: #00ff88;
+}
+
+h2, h3{
+    margin: 20px;
+    color: #f1f1f1;
+}
+
+.pergunta{
+    color: #fdfdfdde;
+}
+
+ul{
+    list-style-type: none;
+}
+
+p{
+    font-weight: bold;
+}
+
+.rodape{
+    width: 100%;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rodape > p{
+    color: #f1f1f1;
+}
+
+.rodape > a{
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+.rodape > a:hover{
+    color:rgb(195, 184, 184);
+    transition: 1s;
+    transform: scale(1.1);
+    text-decoration: underline;
+}
+
+.rodape button{
+    padding: 10px 5px;
+    outline: none;
+    box-shadow: 0px 10px 40px -12px #00ff8052;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 17px;
+    color: #2b134b;
+    background-color: #00ff88;
+    border-radius: 14px;
+    border: none;
+    transition: all 0.3s ease;
+    width: 15%;
+    margin-bottom: 39px;
+    cursor: pointer;
+}
+
+
+.rodape button:hover{
+    background-color: #ff0000; 
+    transform: scale(1.05); 
+    box-shadow: 0px 10px 40px -8px #0077ff52; 
+    transition: 0.7s;
+    color: #fff; 
+}
+
+img{
+    width: 430px;
+    height: 300px;
+}
+
+
+@media screen and (max-width: 550px){
+    img{
+        width: 90%;
+        height: 95%;
+    }
+
+.rodape > a{
+    margin-top: -15px;
+}
+
+h1{
+    font-size: 19px;
+}
+
+h2{
+    font-size: 18px;
+}
+
+ul p {
+    margin-right: 34px;
+}
+
+}
+
+
+

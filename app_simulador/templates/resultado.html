@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados</title>
+    <link rel="stylesheet" href="{% static 'styles/resultado.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/iconn.png' %}" type="image/x-icon">
+</head>
+<body>
+    <h1>Resultado do Simulado</h1>
+    <p>Você acertou {{ pontuacao }} questões de {{ numero_de_questoes }} no total</p>
+    <ul>
+        {% for resposta in respostas_corretas %}
+        <li>
+            <p>{{ resposta.questao.pergunta }}</p>
+            {% if resposta.questao.imagem %}
+                <img src="{{ resposta.questao.imagem.url }}" alt="{{ resposta.questao.pergunta }}" class="imagem-questao">
+            {% endif %}
+            <ul>
+                <li>
+                    Sua resposta: {{ resposta.resposta_usuario }}
+                </li>
+                <li>
+                    Resposta correta: {{ resposta.resposta_correta }}
+                </li>
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <section>
+        <a href="{% url 'home' %}">Voltar para o Menu Principal</a>
+        
+    </section>
+</body>
+</html>

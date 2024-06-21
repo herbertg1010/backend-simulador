@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados</title>
+    <link rel="stylesheet" href="{% static 'styles/person_resul.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/personalizado.png' %}" type="image/x-icon">
+</head>
+<body>
+    <h1>Resultados do Simulado Personalizado</h1>
+    
+    <h2>Pontuação Obtida: {{ pontuacao }}</h2>
+    <h3>Respostas das Questões:</h3>
+    <ul>
+        {% for questao in questoes %}
+            <li>
+                <p class="pergunta">{{ questao.pergunta }}</p>
+                {% if questao.imagem %}
+                    <img src="{{ questao.imagem.url }}" alt="{{ questao.pergunta }}" class="imagem-questao">
+                {% endif %}
+                <p class="green">Alternativa A: {{ questao.alternativa_a }}</p>
+                <p class="green">Alternativa B: {{ questao.alternativa_b }}</p>
+                <p class="green">Alternativa C: {{ questao.alternativa_c }}</p>
+                <p class="green">Alternativa D: {{ questao.alternativa_d }}</p>
+                <p class="green">Alternativa E: {{ questao.alternativa_e }}</p>
+                <p class="green">Resposta Correta: {{ questao.resposta_correta }}</p>
+                {% if questao.resposta_do_usuario == questao.resposta_correta %}
+                    <p>Correto</p>
+                {% else %}
+                   
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    
+    <section class="rodape">
+        <h2>Desempenho Geral:</h2>
+        <p>Número de Questões Corretas: {{ numero_questoes_corretas }}</p>
+        <p>Número Total de Questões: {{ numero_total_questoes }}</p>
+        <a href="{% url 'personalizado' %}">Voltar para o Menu Principal</a>
+    </section>
+</body>
+</html>

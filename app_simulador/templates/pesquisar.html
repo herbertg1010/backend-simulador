@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/pesquisar.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/busca.png' %}" type="image/x-icon">
+    <title>Pesquisar Questões</title>
+</head>
+<body>
+    <form action="{% url 'pesquisar' %}" method="post">
+        {% csrf_token %}
+        <div class="form">
+            <input type="text" name="texto_pesquisa" placeholder="Digite a questão..." id="barra_pesquisa">
+            <select name="topico" id="topico">
+                <option value="">Selecione a matéria</option>
+                <option value="Português">Português</option>
+                <option value="Matemática">Matemática</option>
+            </select>
+            <button type="submit">Pesquisar</button>
+        </div>
+    </form>
+
+    {% if questoes %}
+        <h2>Resultados da Pesquisa</h2>
+        <ul>
+            {% for questao in questoes %}
+                <li>
+                    <p>{{ questao.pergunta }}</p>
+                    {% if questao.imagem %}
+                    <img src="{{questao.imagem.url}}" alt="{{questao.pergunta}}">
+                    {% endif %}
+                    <p>Alternativa A: {{ questao.alternativa_a }}</p>
+                    <p>Alternativa B: {{ questao.alternativa_b }}</p>
+                    <p>Alternativa C: {{ questao.alternativa_c }}</p>
+                    <p>Alternativa D: {{ questao.alternativa_d }}</p>
+                    <p>Alternativa E: {{ questao.alternativa_e }}</p>
+                    <p>Resposta Correta: {{ questao.resposta_correta }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhuma questão encontrada.</p>
+    {% endif %}
+
+</body>
+</html>
